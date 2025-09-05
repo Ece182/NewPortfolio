@@ -1,0 +1,586 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.6;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Theme Styles */
+.App {
+  width: 100%;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.App.light {
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Overall dark background */
+.App.dark {
+  background-color: #121212;
+  color: #b0b0b0;
+  min-height: 100vh;
+}
+
+/* Sections transparent to inherit overall bg */
+.App.dark .navbar,
+.App.dark .home,
+.App.dark .footer,
+.App.dark .contact {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Text and links dark mode colors */
+.App.dark a {
+  color: #fdf0d8;
+}
+
+/* Smooth transitions */
+.navbar, .home, .footer, .contact {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Home on left, links/toggle on right */
+  align-items: center;
+  padding: 1rem 2rem; /* Add padding for edges */
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%; /* Ensure full width */
+}
+
+.App.dark .navbar {
+  background-color: black;
+}
+
+.nav-home {
+  margin-right: 2.5rem; /* Space between Home and links */
+}
+
+.nav-home a {
+  text-decoration: none;
+  color: black;
+  font-size: 3.5rem; /* Larger icon size */
+  transition: color 0.3s ease;
+}
+
+
+.App.dark .nav-home a {
+  color: #d0d0d0;
+}
+
+.App.dark .nav-home a:hover,
+.App.dark .nav-home a.active {
+  color: wheat;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: gray;
+}
+
+.App.dark .nav-links a {
+  color: #d0d0d0;
+}
+
+.App.dark .nav-links a:hover,
+.App.dark .nav-links a.active {
+  color: wheat;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem; /* Space between links and toggle */
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: wheat;
+}
+
+
+/* Hero Section */
+.hero {
+  padding: 8rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom right, #ffffff, #f5f5f5);
+  background-image: url('https://www.transparenttextures.com/patterns/symphony.png'); /* light grid pattern */
+  background-repeat: repeat;
+}
+
+.App.dark .hero {
+  background: linear-gradient(to bottom right, black, black);
+  background-image: url('https://www.transparenttextures.com/patterns/symphony.png');
+}
+
+.hero-title {
+  opacity: 1;
+  transform: translateY(-20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  
+}
+
+.title-animate {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.title-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Content hidden by default */
+.hero-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+}
+
+/* Content shows with fade/slide */
+.content-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.hero p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 750px;
+  color: #333;
+  text-align: left;
+}
+
+.App.dark .hero p {
+  color: #cfcfcf;
+}
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+  color: #000;
+}
+
+.App.dark .social-links a {
+  color: #ccc;
+}
+
+.App.dark .social-links a:hover {
+  color: #fff;
+}
+
+.see-more-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+  transition: all 0.3s ease;
+  padding-bottom: 0.2rem;
+}
+
+.see-more-btn:hover {
+  color: #555;
+  border-color: #555;
+}
+
+.App.dark .see-more-btn {
+  color: #fff;
+  border-color: #fff;
+}
+
+.App.dark .see-more-btn:hover {
+  color: #aaa;
+  border-color: #aaa;
+}
+
+/* About Section */
+.about-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 4rem 2rem;
+}
+
+.about-container h1 {
+  font-size: 2.5rem; /* Bigger heading */
+  font-weight: 800; /* Stronger weight */
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.about-heading h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.about-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-link:hover {
+  color: var(--accent-hover);
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+
+/* Projects Section */
+.projects-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projects-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.category-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  opacity: 1;
+}
+
+.project-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed to 'contain' to avoid stretching */
+  background: transparent;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.project-content a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Theme variables */
+.App.light {
+  --card-bg: #fff;
+  --text-secondary: #555;
+  --accent: #054d9b;
+  --accent-hover: #1fa7bf;
+}
+
+.App.dark {
+  --card-bg: #1e1e1e;
+  --card-bg-hover: #333;
+  --text-secondary: white;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  
+  --accent: wheat;
+  --accent-hover: #f0c040;
+}
+
+
+/* Contact Section */
+.contact {
+  padding: 4rem 0;
+  text-align: center;
+
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.contact p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.App.dark .contact {
+  background-color: black; /* Dark background */
+  color: #b0b0b0;
+  width: 100%;
+  min-height: 100vh; /* Make sure it covers at least the full viewport height */
+  box-sizing: border-box;
+  padding: 4rem 0;
+}
+
+.App.dark {
+  background-color: black;
+  color: #b0b0b0;
+  min-height: 100vh;
+}
+
+.App.dark .contact p {
+  color: #b0b0b0;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.App.dark .contact-links a {
+  color: rgb(253, 240, 216);
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  margin-top: 4rem;
+}
+
+.App.dark footer {
+  background-color: black;
+}
+
+footer p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.App.dark footer p {
+  color: #b0b0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-home {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    margin: 0;
+  }
+
+  .nav-toggle {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .about h2, .projects h2, .contact h2 {
+    font-size: 2rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .see-more-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
