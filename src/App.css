@@ -12,7 +12,9 @@ body, html {
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
@@ -22,33 +24,28 @@ body {
 .App {
   width: 100%;
   padding: 0;
+  background-color: #f5e8c7; /* Yellowish vintage paper base */
+  background-image: 
+    linear-gradient(90deg, rgba(217, 200, 169, 0.3) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(217, 200, 169, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px; /* Graph paper grid size */
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .App.light {
-  background-color: #ffffff;
+  background-color: #f5ecd4;
   color: #333;
 }
 
-/* Overall dark background */
 .App.dark {
-  background-color: #121212;
+  background-color: #121212; /* Dark base for contrast */
   color: #b0b0b0;
   min-height: 100vh;
-}
-
-/* Sections transparent to inherit overall bg */
-.App.dark .navbar,
-.App.dark .home,
-.App.dark .footer,
-.App.dark .contact {
-  background-color: transparent;
-  color: inherit;
-}
-
-/* Text and links dark mode colors */
-.App.dark a {
-  color: #fdf0d8;
+  background-image: 
+    linear-gradient(90deg, rgba(74, 64, 48, 0.3) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(74, 64, 48, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px; /* Graph paper grid for dark mode */
 }
 
 /* Smooth transitions */
@@ -60,18 +57,18 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Home on left, links/toggle on right */
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* Add padding for edges */
-  background-color: #ffffff;
+  padding: 1rem 2rem;
+  background-color: transparent; /* Changed from #ffffff */
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
 .App.dark .navbar {
-  background-color: black;
+  background-color: transparent; /* Changed from black */
 }
 
 .nav-home {
@@ -141,7 +138,7 @@ body {
   padding: 0.5rem;
   border-radius: 50%;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  color: wheat;
+  color: rgb(242, 175, 51);
 }
 
 
@@ -172,6 +169,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  font-family: 'Dancing Script', cursive;
   
 }
 
@@ -275,6 +273,7 @@ body {
   font-weight: 800; /* Stronger weight */
   margin-bottom: 2rem;
   text-align: left;
+  font-family: 'Dancing Script', cursive;
 }
 
 
@@ -299,7 +298,7 @@ body {
   align-items: center;
   gap: 0.4rem;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -327,6 +326,7 @@ body {
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
+  font-family: 'Dancing Script', cursive;
 }
 
 .projects-categories {
@@ -343,19 +343,17 @@ body {
   border-radius: 20px;
   background: var(--card-bg);
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .category-btn:hover {
-  background: var(--accent);
-  color: #fff;
+  background-color: #deb7de; /* Light purple on hover */
 }
 
 .category-btn.active {
-  background: var(--accent);
-  color: #fff;
+  background-color: #c8a8c8;
 }
 
 .projects-grid {
@@ -366,7 +364,6 @@ body {
 
 .project-card {
   background: var(--card-bg);
-  border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -422,10 +419,10 @@ body {
 
 /* Theme variables */
 .App.light {
-  --card-bg: #fff;
+  --card-bg: rgb(252, 252, 252);
   --text-secondary: #555;
-  --accent: #054d9b;
-  --accent-hover: #1fa7bf;
+  --accent: #96c2af;
+  --accent-hover: #7ba593;
 }
 
 .App.dark {
@@ -433,7 +430,7 @@ body {
   --card-bg-hover: #333;
   --text-secondary: white;
   --text-primary: #e0e0e0;
-  --text-secondary: #b0b0b0;
+  --text-secondary: #dbd9d9;
   
   --accent: wheat;
   --accent-hover: #f0c040;
@@ -444,34 +441,34 @@ body {
 .contact {
   padding: 4rem 0;
   text-align: center;
-
+  min-height: 100vh; /* Added to ensure full height */
 }
 
 .contact h2 {
+  font-family: 'Dancing Script', cursive;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
+  color: #333;
+}
+
+.App.dark .contact {
+  background-color: transparent; /* Ensure background inherits from .App */
+  color: #b0b0b0;
+  width: 100%;
+  min-height: 100vh; /* Added for dark mode consistency */
+  box-sizing: border-box;
+  padding: 4rem 0;
+}
+
+.App.dark .contact h2 {
+  color: #b0b0b0;
 }
 
 .contact p {
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
-}
-
-.App.dark .contact {
-  background-color: black; /* Dark background */
-  color: #b0b0b0;
-  width: 100%;
-  min-height: 100vh; /* Make sure it covers at least the full viewport height */
-  box-sizing: border-box;
-  padding: 4rem 0;
-}
-
-.App.dark {
-  background-color: black;
-  color: #b0b0b0;
-  min-height: 100vh;
 }
 
 .App.dark .contact p {
@@ -505,12 +502,12 @@ body {
 footer {
   text-align: center;
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color: transparent; /* Changed from #ffffff */
   margin-top: 4rem;
 }
 
 .App.dark footer {
-  background-color: black;
+  background-color: transparent; /* Changed from black */
 }
 
 footer p {
